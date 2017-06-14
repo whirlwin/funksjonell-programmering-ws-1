@@ -8,14 +8,18 @@ import java.util.Optional;
 public class FunctionalStyle {
 
     private Map<String, String> mapping = new HashMap<>();
+    private String baseUri;
 
-    private String getBaseUrl() {
-        return "http://www.sparebank1.no/sr-bank";
+
+
+    public FunctionalStyle(String baseUri, Map<String, String> mapping) {
+        this.baseUri = baseUri;
+        this.mapping = mapping;
     }
 
     public Optional<URI> resolve(String key) {
         return Optional.ofNullable(mapping.get(key))
                 .flatMap(value ->
-                        Optional.of(URI.create(getBaseUrl()).resolve(value)));
+                        Optional.of(URI.create(baseUri).resolve(value)));
     }
 }
