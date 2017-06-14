@@ -19,7 +19,6 @@ public class FunctionalStyle {
 
     public Optional<URI> resolve(String key) {
         return Optional.ofNullable(mapping.get(key))
-                .flatMap(value ->
-                        Optional.of(URI.create(baseUri).resolve(value)));
+                .map(value -> URI.create(baseUri).resolve(value));
     }
 }
