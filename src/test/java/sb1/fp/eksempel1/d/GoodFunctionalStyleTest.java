@@ -1,18 +1,14 @@
-package sb1.fp;
+package sb1.fp.eksempel1.d;
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
-import sb1.fp.c.WIthOptionalAndMapStyleTest;
-import sb1.fp.d.FunctionalStyle;
+import sb1.fp.eksempel1.d.GoodFunctionalStyle;
 
 import java.net.URI;
 import java.util.HashMap;
@@ -20,9 +16,9 @@ import java.util.Map;
 import java.util.Optional;
 
 @RunWith(BlockJUnit4ClassRunner.class)
-public class SymbolToTargetMapperTest {
+public class GoodFunctionalStyleTest {
 
-    private FunctionalStyle symbolToTargetMapper = null;
+    private GoodFunctionalStyle symbolToTargetMapper = null;
 
     private static final URI BASE_URI = URI.create("https://webapps.dev.sparebank1.no");
     private static final String BANK_1 = "fisk-bank";
@@ -30,7 +26,7 @@ public class SymbolToTargetMapperTest {
 
     @Before
     public void setup() {
-        symbolToTargetMapper = new FunctionalStyle(BASE_URI + "/" + BANK_1 + "/", createMapping());
+        symbolToTargetMapper = new GoodFunctionalStyle(BASE_URI + "/" + BANK_1 + "/", createMapping());
     }
 
     @Test
@@ -48,7 +44,7 @@ public class SymbolToTargetMapperTest {
     }
     @Test
     public void testResolveUrlUnderBank() {
-        symbolToTargetMapper = new FunctionalStyle(BASE_URI + "/" + BANK_2 + "/", createMapping());
+        symbolToTargetMapper = new GoodFunctionalStyle(BASE_URI + "/" + BANK_2 + "/", createMapping());
         assertEquals(
                 URI.create(BASE_URI + "/flesk-bank/nettbank-privat/kontoer/opprett"),
                 symbolToTargetMapper.resolve("nettbank-privat_opprett-konto").get());

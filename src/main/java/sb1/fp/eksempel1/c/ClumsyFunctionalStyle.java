@@ -1,11 +1,11 @@
-package sb1.fp.c;
+package sb1.fp.eksempel1.c;
 
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public class WithOptionalAndMapStyle {
+public class ClumsyFunctionalStyle {
 
     private Map<String, String> mapping = new HashMap<>();
 
