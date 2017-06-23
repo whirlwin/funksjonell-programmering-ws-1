@@ -39,4 +39,6 @@ public class MapOppgaveTest {
         User user1 = new User("syver", "enstad", Optional.of("syver.enstad@gmail.com"));
         assertEquals(Arrays.asList("fiskeboller med bacon", "spaghetti med bacon", "pølser med bacon"), mapOppgave.makeFavoriteFoodGreatAgain(user1));
     }
+
+
 }
